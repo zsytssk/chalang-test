@@ -1,6 +1,9 @@
 
-name= {ASCII_ALPHA~char*}      // for instance, "1362 + 12"
-char = { ASCII_ALPHANUMERIC |  "_"}
+alpha = { 'a'..'z' | 'A'..'Z' }
+digit = { '0'..'9' }
+dash = {"_"}
+char = { alpha | "digit" | dash}
+name= {alpha~char*}      // for instance, "1362 + 12"
 WHITESPACE = _{ " " | "\t" }
 END_LINE = _{ ";" | "\n" }
 Define = _ {"let" | "const"}
