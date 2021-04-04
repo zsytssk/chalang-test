@@ -6,6 +6,6 @@ char = { alpha | "digit" | dash}
 name= {alpha~char*}      // for instance, "1362 + 12"
 WHITESPACE = _{ " " | "\t" }
 END_LINE = _{ ";" | "\n" }
-Define = _ {"let" | "const"}
-// statement = {"let" ~ WHITESPACE+ ~ char+ ~ WHITESPACE+ ~ "=" ~ WHITESPACE+ ~ char+ ~";"}
-statement = {Define ~ name ~ "=" ~ NUMBER+ ~ END_LINE}
+Define = {"let" | "const"}
+// statement = {Define ~ name ~ "=" ~ NUMBER+ ~ END_LINE}
+statement = {Define ~ name ~ "=" ~ name ~ END_LINE}
