@@ -17,7 +17,7 @@ fn main() {
         Ok(mut pairs) => {
             let pair = pairs.next().unwrap();
             println!("{:?}", pair.as_str());
-            println!("{:?}", pair);
+            println!("{:?}", pair.into_inner());
         }
         Err(_err) => {}
     }

@@ -1,9 +1,8 @@
-number = { ASCII_DIGIT+ }                // one or more decimal digits
-enclosed = { "(.." ~ number ~ "..)" }    //     for instance, "(..6472..)"
-sum = { number ~ " + " ~ number }        // for instance, "1362 + 12"
-WHITESPACE = _{ " " }
+
+name= {ASCII_ALPHA~char*}      // for instance, "1362 + 12"
+char = { ASCII_ALPHANUMERIC |  "_"}
+WHITESPACE = _{ " " | "\t" }
 END_LINE = _{ ";" | "\n" }
 Define = _ {"let" | "const"}
-char = { ASCII_ALPHANUMERIC |  "_"}
 // statement = {"let" ~ WHITESPACE+ ~ char+ ~ WHITESPACE+ ~ "=" ~ WHITESPACE+ ~ char+ ~";"}
-statement = {Define ~ char+ ~ "=" ~ char+ ~ END_LINE}
+statement = {Define ~ name ~ "=" ~ NUMBER+ ~ END_LINE}
