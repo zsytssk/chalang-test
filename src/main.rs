@@ -15,9 +15,10 @@ fn main() {
 
     match parse_result {
         Ok(mut pairs) => {
-            let pair = pairs.next().unwrap();
-            println!("{:?}", pair.as_str());
-            println!("{:?}", pair.into_inner());
+            let pair = pairs.next().unwrap().into_inner();
+            for item in pair {
+                println!("{:?}", item.as_str());
+            }
         }
         Err(_err) => {}
     }

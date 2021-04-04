@@ -1,11 +1,11 @@
 
-alpha = { 'a'..'z' | 'A'..'Z' }
-digit = { '0'..'9' }
+alpha = _{ 'a'..'z' | 'A'..'Z' }
+digit = _{ '0'..'9' }
 dash = {"_"}
-char = { alpha | "digit" | dash}
-name= {alpha~char*}      // for instance, "1362 + 12"
+char = _{ alpha | digit | dash}
+name= {alpha+}      // for instance, "1362 + 12"
 WHITESPACE = _{ " " | "\t" }
-END_LINE = _{ ";" | "\n" }
+END_LINE_SIGN = _{ ";" | "\n" }
+EQUAL_SIGN = { "=" }
 Define = {"let" | "const"}
-// statement = {Define ~ name ~ "=" ~ NUMBER+ ~ END_LINE}
-statement = {Define ~ name ~ "=" ~ name ~ END_LINE}
+statement = {Define ~ name ~ EQUAL_SIGN ~ name ~ END_LINE_SIGN}
