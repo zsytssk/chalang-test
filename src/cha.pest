@@ -1,1 +1,11 @@
+
+alpha = _{ 'a'..'z' | 'A'..'Z' }
+digit = _{ '0'..'9' }
+dash = {"_"}
+char = _{ alpha | digit | dash}
+name= {alpha+}      // for instance, "1362 + 12"
 WHITESPACE = _{ " " | "\t" }
+END_LINE_SIGN = _{ ";" | "\n" }
+EQUAL_SIGN = { "=" }
+Define = {"let" | "const"}
+statement = {Define ~ name ~ EQUAL_SIGN ~ name ~ END_LINE_SIGN}
