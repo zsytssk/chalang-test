@@ -1,0 +1,1 @@
+import {number, string} from './basic_type'

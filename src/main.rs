@@ -19,7 +19,7 @@ fn main() {
             for item in pair {
                 println!("{:?}", item.as_str());
             }
-        }
+        },
         Err(_err) => {}
     }
 }
