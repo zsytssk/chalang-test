@@ -14,3 +14,5 @@ inner = @{ char* }
 string = ${ "\"" ~ inner ~ "\"" }
 
 bool = {'false' | 'true'}
+
+ident = @{ASCII_ALPHA ~ (ASCII_ALPHANUMERIC | "-")*}
